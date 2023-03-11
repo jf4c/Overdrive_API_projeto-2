@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overdrive.API", "Overdrive.API\Overdrive.API.csproj", "{0E17EF58-5AFF-4925-92F2-CB7BC2154DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E17EF58-5AFF-4925-92F2-CB7BC2154DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E17EF58-5AFF-4925-92F2-CB7BC2154DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E17EF58-5AFF-4925-92F2-CB7BC2154DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E17EF58-5AFF-4925-92F2-CB7BC2154DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EEB4CB3-AE5E-407E-B885-34DF005DE1CD}
+	EndGlobalSection
+EndGlobal
