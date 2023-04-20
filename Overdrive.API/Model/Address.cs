@@ -12,15 +12,15 @@ namespace Overdrive.API.Model
         public string Cep { get; set; }
 
         [Column("street")]
-        [StringLength(30)]
+        [StringLength(100)]
         public string Street { get; set; }
 
         [Column("bairro")]
-        [StringLength(30)]
+        [StringLength(100)]
         public string Bairro { get; set; }
 
         [Column("number")]
-        public int Number { get; set; }
+        public int? Number { get; set; }
 
         [Column("city")]
         [StringLength(30)]

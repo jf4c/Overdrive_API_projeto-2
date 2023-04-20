@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Overdrive.API.Data.ValueObject;
+using Overdrive.API.Data.ValueObject.Request;
+using Overdrive.API.Data.ValueObject.Response;
 using Overdrive.API.Model;
 
 namespace Overdrive.API.Config
@@ -10,10 +11,17 @@ namespace Overdrive.API.Config
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<CompanyVO, Company>().ReverseMap();
-                config.CreateMap<PeopleVO, People>().ReverseMap();
-                config.CreateMap<AddressVO, Address>().ReverseMap();
-                config.CreateMap<DocumentVO, Document>().ReverseMap();
+                config.CreateMap<CompanyCreate, Company>().ReverseMap();
+                config.CreateMap<CompanyUpdate, Company>().ReverseMap();
+                config.CreateMap<CompanyAndPeople, Company>().ReverseMap();
+                config.CreateMap<CompanyResponse, Company>().ReverseMap();
+
+                config.CreateMap<PeopleCreate, People>().ReverseMap();
+                config.CreateMap<PeopleUpdate, People>().ReverseMap();
+                config.CreateMap<PeopleResponse, People>().ReverseMap();
+                
+
+                config.CreateMap<AddressResponse, Address>().ReverseMap();
             } );
             return mappingConfig;
         }

@@ -1,5 +1,6 @@
 ﻿using Overdrive.API.Enum;
 using Overdrive.API.Model.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Overdrive.API.Model
@@ -8,22 +9,31 @@ namespace Overdrive.API.Model
     public class People : BaseEntity
     {
         [Column("name")]
+        [Required]
         public string Name { get; set; }
 
         [Column("user")]
         public string User { get; set; }
 
-        [ForeignKey("IdDocument")]
-        public virtual Document Document { get; set; }
-        
+        [Column("rg")]
+        [Required]
+        [StringLength(10)]
+        public string RG { get; set; }
+
+        [Column("cpf")]
+        [Required]
+        [StringLength(11)]
+        public string CPF { get; set; }
+
         [Column("phone")]
         public string Phone { get; set; }
         
         [Column("status")]
-        public Status Status { get; set; }
+        public Status? Status { get; set; }
 
-        [ForeignKey("IdCompany")]
-        public virtual Company Company { get; set; }
+        public long? CompanyId { get; set; }
+        [ForeignKey("CompanyId")]
+        public virtual Company? Company { get; set; }
 
     }
 }
