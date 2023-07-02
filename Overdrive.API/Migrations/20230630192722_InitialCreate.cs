@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Overdrive.API.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateCompanyAndPeopleDataTablesOnDB : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,6 +29,8 @@ namespace Overdrive.API.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     number = table.Column<int>(type: "int", nullable: true),
                     city = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    uf = table.Column<string>(type: "varchar(2)", maxLength: 2, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -45,7 +47,7 @@ namespace Overdrive.API.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     cnpj = table.Column<string>(type: "varchar(14)", maxLength: 14, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    status = table.Column<string>(type: "longtext", nullable: true)
+                    status = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     OpeningDate = table.Column<DateTime>(type: "Date", nullable: false),
                     company_name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
@@ -76,17 +78,17 @@ namespace Overdrive.API.Migrations
                 {
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    name = table.Column<string>(type: "longtext", nullable: false)
+                    name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    user = table.Column<string>(type: "longtext", nullable: true)
+                    user = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     rg = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     cpf = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    phone = table.Column<string>(type: "longtext", nullable: true)
+                    phone = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    status = table.Column<string>(type: "longtext", nullable: true)
+                    status = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CompanyId = table.Column<long>(type: "bigint", nullable: true)
                 },

@@ -17,7 +17,7 @@ namespace Overdrive.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompanyResponse>>> FindAll()
+        public async Task<ActionResult<IEnumerable<CompanyAndPeople>>> FindAll()
         {
             var companies = await _repository.FindAll();
             return Ok(companies);
@@ -39,7 +39,7 @@ namespace Overdrive.API.Controllers
             return Ok(company);
         }
 
-        [HttpGet("FindAllPeopleInCompany{idCompany}")]
+        [HttpGet("FindAllPeopleInCompany/{idCompany}")]
         public async Task<ActionResult<CompanyAndPeople>> FindAllPeopleInCompany(long idCompany)
         {
             var peoples = await _repository.FindAllPeopleInCompany(idCompany);

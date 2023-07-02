@@ -10,9 +10,11 @@ namespace Overdrive.API.Model
     {
         [Column("name")]
         [Required]
+        [StringLength(100)]
         public string Name { get; set; }
 
         [Column("user")]
+        [StringLength(100)]
         public string User { get; set; }
 
         [Column("rg")]
@@ -26,9 +28,11 @@ namespace Overdrive.API.Model
         public string CPF { get; set; }
 
         [Column("phone")]
+        [StringLength(11)]
         public string Phone { get; set; }
         
         [Column("status")]
+        [StringLength(10)]
         public Status? Status { get; set; }
 
         public long? CompanyId { get; set; }

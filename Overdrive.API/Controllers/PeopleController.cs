@@ -25,10 +25,18 @@ namespace Overdrive.API.Controllers
             return Ok(peoples);
         }
 
-        [HttpGet("{name}")]
+        [HttpGet("FindByName/{name}")]
         public async Task<ActionResult<PeopleCreate>> FindByName(string name)
         {
             var people = await _repository.FindByName(name);
+            if (people == null) return NotFound();
+            return Ok(people);
+        }
+        
+        [HttpGet("FindByCPF/{cpf}")]
+        public async Task<ActionResult<PeopleResponse>> FindByCpf(string cpf)
+        {
+            var people = await _repository.FindByCpf(cpf);
             if (people == null) return NotFound();
             return Ok(people);
         }

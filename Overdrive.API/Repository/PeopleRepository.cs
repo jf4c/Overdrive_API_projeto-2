@@ -39,6 +39,15 @@ namespace Overdrive.API.Repository
             return _mapper.Map<IEnumerable<PeopleResponse>>(people);
         }
 
+        public async Task<PeopleResponse> FindByCpf(string cpf)
+        {
+            People people = await _context.Peoples
+                .Where(p => p.CPF == cpf)
+                .Include(p => p.Company)
+                .FirstOrDefaultAsync();
+            return _mapper.Map<PeopleResponse>(people);
+        }
+
         public async Task<PeopleCreate> CreatePeople(PeopleCreate vo)
         {
             People people = _mapper.Map<People>(vo);
@@ -81,6 +90,8 @@ namespace Overdrive.API.Repository
 
             people.CPF = peopleDB.CPF;
             people.RG = peopleDB.RG;
+            people.CompanyId = peopleDB.CompanyId;
+            people.Company = peopleDB.Company;
 
             var status =
                 people.Name != null &&

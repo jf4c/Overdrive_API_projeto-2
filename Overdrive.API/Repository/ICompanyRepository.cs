@@ -5,7 +5,7 @@ namespace Overdrive.API.Repository
 {
     public interface ICompanyRepository
     {
-        Task<IEnumerable<CompanyResponse>> FindAll();
+        Task<IEnumerable<CompanyAndPeople>> FindAll();
         Task<IEnumerable<CompanyResponse>> FindByName(string name);
         Task<CompanyResponse> FindByCNPJ(string cnpj);
         Task<CompanyCreate> CreateCompany(CompanyCreate vo);

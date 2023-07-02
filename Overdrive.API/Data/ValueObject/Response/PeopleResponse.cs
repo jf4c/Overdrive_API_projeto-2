@@ -14,7 +14,7 @@ namespace Overdrive.API.Data.ValueObject.Request
         public string RG { get; set; }
         public string CPF { get; set; }
         public string Phone { get; set; }
-        public Status Status { get; set; }
+        public string Status { get; set; }
         public long? CompanyId { get; set; }
         public virtual CompanyResponse company { get; set; }
 

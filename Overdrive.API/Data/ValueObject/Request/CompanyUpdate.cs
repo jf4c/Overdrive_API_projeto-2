@@ -10,6 +10,7 @@ namespace Overdrive.API.Data.ValueObject.Request
     public class CompanyUpdate
     {
         public long? Id { get; set; }
+        public DateTime? OpeningDate { get; set; }
         public string CompanyName { get; set; }
         public string TradingName { get; set; }
         public string CNAE { get; set; }

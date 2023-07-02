@@ -7,6 +7,7 @@ namespace Overdrive.API.Repository
     {
         Task<IEnumerable<PeopleResponse>> FindAll();
         Task<IEnumerable<PeopleResponse>> FindByName(string name);
+        Task<PeopleResponse> FindByCpf(string cpf);
         Task<PeopleCreate> CreatePeople(PeopleCreate vo);
         Task<PeopleUpdate> UpdatePeople(PeopleUpdate vo);
         Task<string> ChangePeopleStatus(long idPeople);

@@ -11,7 +11,7 @@ namespace Overdrive.API.Data.ValueObject.Request
     {
         public long Id { get; set; }
         public string CNPJ { get; set; }
-        public Status? Status { get; set; }
+        public string Status { get; set; }
         public DateTime? OpeningDate { get; set; }
         public string CompanyName { get; set; }
         public string TradingName { get; set; }

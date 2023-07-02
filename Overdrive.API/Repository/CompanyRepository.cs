@@ -20,13 +20,13 @@ namespace Overdrive.API.Repository
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CompanyResponse>> FindAll()
+        public async Task<IEnumerable<CompanyAndPeople>> FindAll()
         {
             List<Company> companies = await _context.Companies
                 .Include(c => c.Address)
                 .Include(c => c.peoples)
                 .ToListAsync();
-            return _mapper.Map<List<CompanyResponse>>(companies);
+            return _mapper.Map<List<CompanyAndPeople>>(companies);
         }
 
         public async Task<CompanyResponse> FindByCNPJ(string cnpj)
@@ -149,9 +149,9 @@ namespace Overdrive.API.Repository
                 .Where(c => c.Id == idCompany)
                 .FirstOrDefaultAsync();
 
-            People people = await _context.Peoples
+            List<People> people = await _context.Peoples
                 .Where(p => p.CompanyId == idCompany)
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
             if (company.Status != Status.Pending)
             {
@@ -159,10 +159,13 @@ namespace Overdrive.API.Repository
                 if (status)
                 {
                     company.Status = Status.Inactive;
-                    if(people != null)
+                    foreach (var person in people)
                     {
-                        people.CompanyId = null;
-                        people.Company = null;
+                        if(person != null)
+                        {
+                            person.CompanyId = null;
+                            person.Company = null;
+                        }
                     }
                 }
                 else

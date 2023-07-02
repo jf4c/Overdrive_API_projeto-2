@@ -11,8 +11,8 @@ using Overdrive.API.Model.context;
 namespace Overdrive.API.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20230321184551_CreateCompanyAndPeopleDataTablesOnDB")]
-    partial class CreateCompanyAndPeopleDataTablesOnDB
+    [Migration("20230630192722_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,11 @@ namespace Overdrive.API.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("street");
+
+                    b.Property<string>("uf")
+                        .HasMaxLength(2)
+                        .HasColumnType("varchar(2)")
+                        .HasColumnName("uf");
 
                     b.HasKey("Id");
 
@@ -98,7 +103,8 @@ namespace Overdrive.API.Migrations
                         .HasColumnType("Date");
 
                     b.Property<string>("Status")
-                        .HasColumnType("longtext")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("status");
 
                     b.Property<string>("TradingName")
@@ -131,11 +137,13 @@ namespace Overdrive.API.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("name");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("longtext")
+                        .HasMaxLength(11)
+                        .HasColumnType("varchar(11)")
                         .HasColumnName("phone");
 
                     b.Property<string>("RG")
@@ -145,11 +153,13 @@ namespace Overdrive.API.Migrations
                         .HasColumnName("rg");
 
                     b.Property<string>("Status")
-                        .HasColumnType("longtext")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("status");
 
                     b.Property<string>("User")
-                        .HasColumnType("longtext")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("user");
 
                     b.HasKey("Id");

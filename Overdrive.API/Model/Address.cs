@@ -25,5 +25,11 @@ namespace Overdrive.API.Model
         [Column("city")]
         [StringLength(30)]
         public string City { get; set; }
+        
+        [Column("uf")]
+        [StringLength(2)]
+        public string uf { get; set; }
+
+
     }
 }

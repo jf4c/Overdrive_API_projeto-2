@@ -15,6 +15,7 @@ namespace Overdrive.API.Model
         public string CNPJ { get; set; }
 
         [Column("status")]
+        [StringLength(10)]
         public Status? Status { get; set; }
 
         [Column(TypeName = "Date")]
